@@ -1,0 +1,5 @@
+name: TFElib
+version: '${project.version}'
+main: org.tfeteam.tfelib.Main
+api-version: '1.20'
+authors: [Seppo]
