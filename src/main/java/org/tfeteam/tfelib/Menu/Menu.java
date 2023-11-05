@@ -18,8 +18,6 @@ public abstract class Menu implements InventoryHolder {
         inventory = Bukkit.createInventory(this, slots, name);
     }
 
-    protected abstract void init();
-
     void fill(){
         ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta meta = filler.getItemMeta();
