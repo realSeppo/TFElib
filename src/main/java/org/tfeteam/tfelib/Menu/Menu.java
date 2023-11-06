@@ -1,11 +1,9 @@
 package org.tfeteam.tfelib.Menu;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
@@ -27,12 +25,7 @@ public abstract class Menu implements InventoryHolder {
         for (int i = 0; i < inventory.getSize(); i++) inventory.setItem(i, filler);
     }
 
-    protected void createItem(Material material, String name, int slot){
-        ItemStack item = new ItemStack(material);
-        ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(name);
-        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        item.setItemMeta(meta);
+    protected void setItem(SimpleItem item, int slot){
         inventory.setItem(slot, item);
     }
 
