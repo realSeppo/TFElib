@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
+import org.tfeteam.tfelib.Items.SimpleItem;
 
 
 public abstract class Menu implements InventoryHolder {
@@ -18,15 +19,15 @@ public abstract class Menu implements InventoryHolder {
         inventory = Bukkit.createInventory(this, slots, name);
     }
 
-    void fill(){
-        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+    protected void fill(SimpleItem item){
+        ItemStack filler = item;
         ItemMeta meta = filler.getItemMeta();
         meta.setDisplayName(" ");
         filler.setItemMeta(meta);
         for (int i = 0; i < inventory.getSize(); i++) inventory.setItem(i, filler);
     }
 
-    void createItem(Material material, String name, int slot){
+    protected void createItem(Material material, String name, int slot){
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(name);
