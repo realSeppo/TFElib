@@ -3,27 +3,19 @@ package org.tfeteam.tfelib.Items;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class SimpleItem extends ItemStack {
-    public SimpleItem(Material material, String name, List<String> lore){
-        super(material);
-
-        ItemMeta meta = this.getItemMeta();
-        meta.setDisplayName(name);
+public class SimpleItem {
+    public void setLore(@NotNull ItemStack item, List<String> lore){
+        ItemMeta meta = item.getItemMeta();
         meta.setLore(lore);
-        this.setItemMeta(meta);
+        item.setItemMeta(meta);
     }
-
-    public void setName(String name){
-        ItemMeta meta = this.getItemMeta();
+    public static void setName(@NotNull ItemStack item, String name){
+        ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(name);
-        this.setItemMeta(meta);
-    }
-    public void setLore(List<String> lore){
-        ItemMeta meta = this.getItemMeta();
-        meta.setLore(lore);
-        this.setItemMeta(meta);
+        item.setItemMeta(meta);
     }
 }

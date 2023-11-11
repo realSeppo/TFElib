@@ -7,7 +7,6 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
-import org.tfeteam.tfelib.Items.SimpleItem;
 
 
 public abstract class Menu implements InventoryHolder {
@@ -17,7 +16,7 @@ public abstract class Menu implements InventoryHolder {
         inventory = Bukkit.createInventory(this, slots, name);
     }
 
-    protected void fill(SimpleItem item){
+    protected void fill(ItemStack item){
         ItemStack filler = item;
         ItemMeta meta = filler.getItemMeta();
         meta.setDisplayName(" ");
@@ -29,7 +28,7 @@ public abstract class Menu implements InventoryHolder {
         inventory.setItem(slot, item);
     }
 
-    public abstract void interact(int slot, Player player);
+    public abstract boolean interact(int slot, Player player);
 
     @Override
     public @NotNull Inventory getInventory() {

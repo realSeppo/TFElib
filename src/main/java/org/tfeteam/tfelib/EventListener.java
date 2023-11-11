@@ -13,7 +13,7 @@ public class EventListener implements Listener {
     public void onItemClick(InventoryClickEvent event) {
         InventoryHolder inventoryHolder = event.getInventory().getHolder();
         if (inventoryHolder instanceof Menu) {
-            ((Menu) inventoryHolder).interact(event.getSlot(), (Player) event.getWhoClicked());
+            if(!((Menu) inventoryHolder).interact(event.getSlot(), (Player) event.getWhoClicked())) event.setCancelled(true);
         }
     }
     @EventHandler
@@ -21,7 +21,7 @@ public class EventListener implements Listener {
         InventoryHolder inventoryHolder = event.getInventory().getHolder();
         if (inventoryHolder instanceof Menu) {
             for (int slot : event.getNewItems().keySet()) {
-                ((Menu) inventoryHolder).interact(slot, (Player) event.getWhoClicked());
+                if(!((Menu) inventoryHolder).interact(slot, (Player) event.getWhoClicked())) event.setCancelled(true);
             }
         }
     }
