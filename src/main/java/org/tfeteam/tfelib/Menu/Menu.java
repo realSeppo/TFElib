@@ -24,7 +24,7 @@ public abstract class Menu implements InventoryHolder {
         for (int i = 0; i < inventory.getSize(); i++) inventory.setItem(i, filler);
     }
 
-    protected void setItem(ItemStack item, int slot){
+    public void setItem(ItemStack item, int slot){
         inventory.setItem(slot, item);
     }
 
