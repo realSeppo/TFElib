@@ -8,14 +8,16 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class SimpleItem {
-    public void setLore(@NotNull ItemStack item, List<String> lore){
+    public ItemStack setLore(@NotNull ItemStack item, List<String> lore){
         ItemMeta meta = item.getItemMeta();
         meta.setLore(lore);
         item.setItemMeta(meta);
+        return item;
     }
-    public static void setName(@NotNull ItemStack item, String name){
+    public static ItemStack setName(@NotNull ItemStack item, String name){
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(name);
         item.setItemMeta(meta);
+        return item;
     }
 }
