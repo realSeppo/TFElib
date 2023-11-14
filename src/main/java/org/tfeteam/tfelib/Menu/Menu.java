@@ -27,6 +27,7 @@ public abstract class Menu implements InventoryHolder {
     public void setItem(ItemStack item, int slot){
         inventory.setItem(slot, item);
     }
+    public ItemStack getItem(int slot) {return inventory.getItem(slot);}
 
     public abstract boolean interact(int slot, Player player);
 
