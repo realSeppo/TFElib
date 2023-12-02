@@ -1,5 +1,7 @@
 package org.tfeteam.tfelib.Menu;
 
+import dev.lone.itemsadder.api.FontImages.FontImageWrapper;
+import dev.lone.itemsadder.api.FontImages.TexturedInventoryWrapper;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -12,8 +14,13 @@ import org.jetbrains.annotations.NotNull;
 public abstract class Menu implements InventoryHolder {
     Inventory inventory;
 
-    public Menu(int slots, String name){
-        inventory = Bukkit.createInventory(this, slots, name);
+    public Menu(int slots, String name, String texture){
+        if(texture == null) {
+            inventory = Bukkit.createInventory(this, slots, name);
+        }
+        else{
+            inventory = new TexturedInventoryWrapper(this, slots, name, new FontImageWrapper(texture)).getInternal();
+        }
     }
 
     protected void fill(ItemStack item){

@@ -65,5 +65,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm:9.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-commons:9.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-tree:9.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.github.LoneDev6:api-itemsadder:3.6.1" level="project" />
   </component>
 </module>
