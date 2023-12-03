@@ -4,6 +4,7 @@ import dev.lone.itemsadder.api.FontImages.FontImageWrapper;
 import dev.lone.itemsadder.api.FontImages.TexturedInventoryWrapper;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
@@ -13,15 +14,12 @@ import org.jetbrains.annotations.NotNull;
 
 public abstract class Menu implements InventoryHolder {
     Inventory inventory;
-    TexturedInventoryWrapper texturedInventory;
 
-    public Menu(int slots, String name, String texture){
-        if(texture == null) {
-            inventory = Bukkit.createInventory(this, slots, name);
-        }
-        else{
-            texturedInventory = new TexturedInventoryWrapper(this, slots, name, new FontImageWrapper(texture));
-        }
+    public Menu(int slots, String name){
+        inventory = Bukkit.createInventory(this, slots, name);
+    }
+    public Menu(int slots, String name, String texture, int titleOffset, int textureOffset){
+        inventory = new TexturedInventoryWrapper(this, 27, name, titleOffset, textureOffset, new FontImageWrapper(texture)).getInternal();
     }
 
     protected void fill(ItemStack item){
@@ -38,11 +36,6 @@ public abstract class Menu implements InventoryHolder {
     public ItemStack getItem(int slot) {return inventory.getItem(slot);}
 
     public abstract boolean interact(int slot, Player player);
-
-    public void openMenu(Player player){
-        if(inventory != null) player.openInventory(inventory);
-        else texturedInventory.showInventory(player);
-    }
 
     @Override
     public @NotNull Inventory getInventory() {
