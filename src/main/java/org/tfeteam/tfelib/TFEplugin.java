@@ -29,6 +29,9 @@ public abstract class TFEplugin extends JavaPlugin {
     public void saveConfig(@NotNull String config, String path){
         saveConfig(config, path, null);
     }
+    public void saveConfig(@NotNull String config){
+        saveConfig(config, null, null);
+    }
 
     public FileConfiguration getConfig(String path) {
         File file = new File(path);
