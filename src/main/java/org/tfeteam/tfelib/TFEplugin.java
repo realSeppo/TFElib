@@ -11,6 +11,9 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 
 public abstract class TFEplugin extends JavaPlugin {
+    public void saveConfigIfNotExist(@NotNull String config) {
+        saveConfigIfNotExist(config, null, null);
+    }
     public void saveConfigIfNotExist(@NotNull String config, String path) {
         saveConfigIfNotExist(config, path, null);
     }
