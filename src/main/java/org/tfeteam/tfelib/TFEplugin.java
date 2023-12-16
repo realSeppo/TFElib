@@ -19,6 +19,12 @@ public abstract class TFEplugin extends JavaPlugin {
     }
 
     public void saveConfig(@NotNull String name, String path, String text){
+
+        File folder = new File(getDataFolder() + path);
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+
         FileConfiguration configuration;
         if(text == null) configuration = YamlConfiguration.loadConfiguration(new InputStreamReader(getResource(name + ".yml")));
         else configuration = YamlConfiguration.loadConfiguration(new StringReader(text));
