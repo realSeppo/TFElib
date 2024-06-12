@@ -9,8 +9,5 @@
         <module name="TFElib" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="TFElib" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
